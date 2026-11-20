@@ -167,7 +167,6 @@
   </div>
 </section>
 
-<!-- خريطة سوريا -->
 <section class="map-section" id="map-section">
   <div class="wrap">
     <div class="head reveal">
@@ -175,101 +174,45 @@
       <h2>من حلب إلى كل سوريا</h2>
       <p>انطلاقتنا من حلب، ونوصل إلى المدن الرئيسية داخل البلاد</p>
     </div>
+    <div class="map-box" id="map-box">
+      <svg viewBox="0 0 400 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="خريطة سوريا ومواقع التوصيل">
+        <!-- شكل تقريبي لحدود سوريا (توضيحي وليس دقيقاً بالمقياس) -->
+        <path class="syria-shape" pathLength="1"
+          d="M10,113 L20,90 L34,79 L56,48 L78,36 L134,30 L168,24 L202,24 L263,18 L313,18 L377,15 L330,72 L313,90 L302,132 L296,180 L257,198 L224,240 L179,306 L56,294 L28,276 L11,252 L28,234 L50,192 L28,168 L17,144 Z"/>
 
-    <div class="nmap-wrap reveal" id="nmap-wrap">
-      <svg class="nmap-svg" viewBox="0 0 345 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="خريطة سوريا ومسارات التوصيل من حلب">
-        <defs>
-          <linearGradient id="nmGrad" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stop-color="#d9bd82" stop-opacity=".38"/>
-            <stop offset="1" stop-color="#b8924a" stop-opacity=".08"/>
-          </linearGradient>
-          <filter id="nmGlow" x="-20%" y="-20%" width="140%" height="140%">
-            <feGaussianBlur stdDeviation="2.5" result="b"/>
-            <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-          </filter>
-        </defs>
-
-        <!-- شبكة خطوط الطول والعرض -->
-        <g class="nm-grid">
-          <line class="nm-grat" x1="69" y1="0" x2="69" y2="320"/>
-          <line class="nm-grat" x1="138" y1="0" x2="138" y2="320"/>
-          <line class="nm-grat" x1="207" y1="0" x2="207" y2="320"/>
-          <line class="nm-grat" x1="276" y1="0" x2="276" y2="320"/>
-          <line class="nm-grat" x1="0" y1="64" x2="345" y2="64"/>
-          <line class="nm-grat" x1="0" y1="128" x2="345" y2="128"/>
-          <line class="nm-grat" x1="0" y1="192" x2="345" y2="192"/>
-          <line class="nm-grat" x1="0" y1="256" x2="345" y2="256"/>
-        </g>
-
-        <!-- حدود سوريا (توضيحية) -->
-        <path class="nm-country" fill="url(#nmGrad)" filter="url(#nmGlow)"
-          d="M16,87 L32,72 L49,45 L69,45 L83,42 L103,30 L118,33 L142,30 L167,33 L201,30 L235,18 L265,18 L289,21 L331,15 L299,48 L284,72 L274,90 L265,126 L260,156 L260,180 L230,198 L201,234 L176,264 L157,306 L122,300 L78,294 L49,294 L20,276 L5,258 L12,240 L25,216 L39,198 L49,180 L29,168 L17,165 L14,150 L17,133 L9,113 L16,87 Z"/>
-
-        <!-- نهر الفرات -->
-        <path class="nm-river" d="M118,33 Q150,50 167,87 Q200,110 222,124 Q245,150 260,178"/>
+        <text class="map-label" x="200" y="170" text-anchor="middle">سوريا</text>
 
         <!-- مسارات التوصيل من حلب -->
-        <path id="rt-latakia" class="nm-route" d="M76,72 Q30,70 9,113"/>
-        <path id="rt-hama" class="nm-route" d="M76,72 Q60,100 56,136"/>
-        <path id="rt-homs" class="nm-route" d="M76,72 Q62,120 55,160"/>
-        <path id="rt-damascus" class="nm-route" d="M76,72 Q92,150 34,233"/>
-        <path id="rt-raqqa" class="nm-route" d="M76,72 Q140,60 167,87"/>
-        <path id="rt-deir" class="nm-route" d="M76,72 Q170,100 222,124"/>
-        <path id="rt-hasakah" class="nm-route" d="M76,72 Q160,40 252,54"/>
-
-        <!-- نقاط تسير على المسارات -->
-        <circle class="nm-traveler" r="2.6"><animateMotion dur="3.2s" repeatCount="indefinite" begin="0s"><mpath href="#rt-latakia"/></animateMotion></circle>
-        <circle class="nm-traveler" r="2.6"><animateMotion dur="3.6s" repeatCount="indefinite" begin="0.6s"><mpath href="#rt-hama"/></animateMotion></circle>
-        <circle class="nm-traveler" r="2.6"><animateMotion dur="3.4s" repeatCount="indefinite" begin="1.1s"><mpath href="#rt-homs"/></animateMotion></circle>
-        <circle class="nm-traveler" r="2.6"><animateMotion dur="4.4s" repeatCount="indefinite" begin="0.3s"><mpath href="#rt-damascus"/></animateMotion></circle>
-        <circle class="nm-traveler" r="2.6"><animateMotion dur="3.0s" repeatCount="indefinite" begin="1.6s"><mpath href="#rt-raqqa"/></animateMotion></circle>
-        <circle class="nm-traveler" r="2.6"><animateMotion dur="3.8s" repeatCount="indefinite" begin="2.0s"><mpath href="#rt-deir"/></animateMotion></circle>
-        <circle class="nm-traveler" r="2.6"><animateMotion dur="4.0s" repeatCount="indefinite" begin="0.9s"><mpath href="#rt-hasakah"/></animateMotion></circle>
+        <path class="route" d="M87,72 Q110,150 38,233"/>
+        <path class="route" d="M87,72 Q40,70 10,113"/>
+        <path class="route" d="M87,72 Q150,70 224,87"/>
+        <path class="route" d="M87,72 Q200,100 280,124"/>
 
         <!-- المدن -->
-        <g class="nm-city-group">
-          <circle class="nm-city" cx="9" cy="113" r="3.5"/>
-          <text class="nm-label" x="15" y="117">اللاذقية</text>
+        <circle class="city" cx="10" cy="113" r="3.5"/>
+        <text class="city-label" x="16" y="117">اللاذقية</text>
 
-          <circle class="nm-city" cx="56" cy="136" r="3.5"/>
-          <text class="nm-label" x="63" y="140">حماة</text>
+        <circle class="city" cx="59" cy="160" r="3.5"/>
+        <text class="city-label" x="66" y="164">حمص</text>
 
-          <circle class="nm-city" cx="55" cy="160" r="3.5"/>
-          <text class="nm-label" x="62" y="164">حمص</text>
+        <circle class="city" cx="38" cy="233" r="3.5"/>
+        <text class="city-label" x="45" y="237">دمشق</text>
 
-          <circle class="nm-city" cx="34" cy="233" r="3.5"/>
-          <text class="nm-label" x="41" y="237">دمشق</text>
+        <circle class="city" cx="224" cy="87" r="3.5"/>
+        <text class="city-label" x="231" y="91">الرقة</text>
 
-          <circle class="nm-city" cx="167" cy="87" r="3.5"/>
-          <text class="nm-label" x="174" y="91">الرقة</text>
+        <circle class="city" cx="280" cy="124" r="3.5"/>
+        <text class="city-label" x="287" y="128">دير الزور</text>
 
-          <circle class="nm-city" cx="222" cy="124" r="3.5"/>
-          <text class="nm-label" x="229" y="128">دير الزور</text>
+        <circle class="city" cx="314" cy="54" r="3.5"/>
+        <text class="city-label" x="321" y="58">الحسكة</text>
 
-          <circle class="nm-city" cx="252" cy="54" r="3.5"/>
-          <text class="nm-label" x="259" y="58">الحسكة</text>
-        </g>
-
-        <!-- حلب: المقر -->
-        <circle class="nm-pulse" cx="76" cy="72" r="6"/>
-        <circle class="nm-home" cx="76" cy="72" r="6"/>
-        <text class="nm-home-label" x="86" y="66">حلب</text>
-
-        <text class="nm-country-label" x="175" y="180" text-anchor="middle">سوريا</text>
+        <!-- حلب: نقطة الانطلاق -->
+        <circle class="home-ping" cx="87" cy="72" r="5"/>
+        <circle class="home-dot" cx="87" cy="72" r="5"/>
+        <text class="home-label" x="96" y="66">حلب</text>
       </svg>
-
-      <div class="nm-legend">
-        <span>حلب · المقر</span>
-        <span>دمشق</span>
-        <span>حمص</span>
-        <span>حماة</span>
-        <span>اللاذقية</span>
-        <span>الرقة</span>
-        <span>دير الزور</span>
-        <span>الحسكة</span>
-      </div>
     </div>
-
     <p class="map-note">الخريطة توضيحية، والمدن المعروضة أمثلة على مناطق التوصيل</p>
   </div>
 </section>
@@ -347,8 +290,8 @@
     entries.forEach(en => {
       if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
     });
-  }, { threshold: 0.15 });
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal, .map-box').forEach(el => io.observe(el));
 
   /* ----- الهيدر عند التمرير ----- */
   const header = document.querySelector('header');
