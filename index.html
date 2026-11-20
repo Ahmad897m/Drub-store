@@ -175,42 +175,49 @@
       <p>انطلاقتنا من حلب، ونوصل إلى المدن الرئيسية داخل البلاد</p>
     </div>
     <div class="map-box" id="map-box">
-      <svg viewBox="0 0 400 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="خريطة سوريا ومواقع التوصيل">
+      <svg viewBox="0 0 345 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="خريطة سوريا ومواقع التوصيل">
         <!-- شكل تقريبي لحدود سوريا (توضيحي وليس دقيقاً بالمقياس) -->
         <path class="syria-shape" pathLength="1"
-          d="M10,113 L20,90 L34,79 L56,48 L78,36 L134,30 L168,24 L202,24 L263,18 L313,18 L377,15 L330,72 L313,90 L302,132 L296,180 L257,198 L224,240 L179,306 L56,294 L28,276 L11,252 L28,234 L50,192 L28,168 L17,144 Z"/>
+          d="M16,87 L32,72 L49,45 L69,45 L83,42 L103,30 L118,33 L142,30 L167,33 L201,30 L235,18 L265,18 L289,21 L331,15 L299,48 L284,72 L274,90 L265,126 L260,156 L260,180 L230,198 L201,234 L176,264 L157,306 L122,300 L78,294 L49,294 L20,276 L5,258 L12,240 L25,216 L39,198 L49,180 L29,168 L17,165 L14,150 L17,133 L9,113 L16,87 Z"/>
 
-        <text class="map-label" x="200" y="170" text-anchor="middle">سوريا</text>
+        <text class="map-label" x="175" y="175" text-anchor="middle">سوريا</text>
+
+        <!-- نهر الفرات (توضيحي) -->
+        <path class="river" d="M118,33 Q150,50 167,87 Q200,110 222,124 Q245,150 260,178"/>
 
         <!-- مسارات التوصيل من حلب -->
-        <path class="route" d="M87,72 Q110,150 38,233"/>
-        <path class="route" d="M87,72 Q40,70 10,113"/>
-        <path class="route" d="M87,72 Q150,70 224,87"/>
-        <path class="route" d="M87,72 Q200,100 280,124"/>
+        <path class="route" d="M76,72 Q90,150 34,233"/>
+        <path class="route" d="M76,72 Q30,70 9,113"/>
+        <path class="route" d="M76,72 Q140,60 167,87"/>
+        <path class="route" d="M76,72 Q170,100 222,124"/>
+        <path class="route" d="M76,72 Q160,40 252,54"/>
 
         <!-- المدن -->
-        <circle class="city" cx="10" cy="113" r="3.5"/>
-        <text class="city-label" x="16" y="117">اللاذقية</text>
+        <circle class="city" cx="9" cy="113" r="3.5"/>
+        <text class="city-label" x="15" y="117">اللاذقية</text>
 
-        <circle class="city" cx="59" cy="160" r="3.5"/>
-        <text class="city-label" x="66" y="164">حمص</text>
+        <circle class="city" cx="56" cy="136" r="3.5"/>
+        <text class="city-label" x="63" y="140">حماة</text>
 
-        <circle class="city" cx="38" cy="233" r="3.5"/>
-        <text class="city-label" x="45" y="237">دمشق</text>
+        <circle class="city" cx="55" cy="160" r="3.5"/>
+        <text class="city-label" x="62" y="164">حمص</text>
 
-        <circle class="city" cx="224" cy="87" r="3.5"/>
-        <text class="city-label" x="231" y="91">الرقة</text>
+        <circle class="city" cx="34" cy="233" r="3.5"/>
+        <text class="city-label" x="41" y="237">دمشق</text>
 
-        <circle class="city" cx="280" cy="124" r="3.5"/>
-        <text class="city-label" x="287" y="128">دير الزور</text>
+        <circle class="city" cx="167" cy="87" r="3.5"/>
+        <text class="city-label" x="174" y="91">الرقة</text>
 
-        <circle class="city" cx="314" cy="54" r="3.5"/>
-        <text class="city-label" x="321" y="58">الحسكة</text>
+        <circle class="city" cx="222" cy="124" r="3.5"/>
+        <text class="city-label" x="229" y="128">دير الزور</text>
+
+        <circle class="city" cx="252" cy="54" r="3.5"/>
+        <text class="city-label" x="259" y="58">الحسكة</text>
 
         <!-- حلب: نقطة الانطلاق -->
-        <circle class="home-ping" cx="87" cy="72" r="5"/>
-        <circle class="home-dot" cx="87" cy="72" r="5"/>
-        <text class="home-label" x="96" y="66">حلب</text>
+        <circle class="home-ping" cx="76" cy="72" r="5"/>
+        <circle class="home-dot" cx="76" cy="72" r="5"/>
+        <text class="home-label" x="84" y="64">حلب</text>
       </svg>
     </div>
     <p class="map-note">الخريطة توضيحية، والمدن المعروضة أمثلة على مناطق التوصيل</p>

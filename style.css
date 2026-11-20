@@ -254,6 +254,11 @@ header.scrolled { background: rgba(20,18,15,.92); backdrop-filter: blur(10px); b
 .home-ping { fill: rgba(184,146,74,.5); transform-box: fill-box; transform-origin: center; animation: ping 2.2s ease-out infinite; }
 @keyframes ping { 0% { transform: scale(1); opacity: .9; } 100% { transform: scale(4); opacity: 0; } }
 .home-label { fill: var(--gold-soft); font-size: 17px; font-weight: 900; font-family: "Cairo", sans-serif; }
+.river {
+  fill: none; stroke: rgba(120,170,220,.55); stroke-width: 2.2; stroke-linecap: round;
+  stroke-dasharray: 300; stroke-dashoffset: 300; transition: stroke-dashoffset 3s .8s var(--ease);
+}
+.map-box.in .river { stroke-dashoffset: 0; }
 .route {
   fill: none; stroke: var(--gold-soft); stroke-width: 1.2; stroke-dasharray: 4 6; opacity: 0;
   animation: flow 1.6s linear infinite; transition: opacity 1s 1.8s;
@@ -326,6 +331,6 @@ footer .logo { color: #fff; font-size: 24px; margin-bottom: 8px; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .reveal { opacity: 1; transform: none; }
-  .syria-shape { stroke-dashoffset: 0; }
+  .syria-shape, .river { stroke-dashoffset: 0; }
   .city, .city-label, .route { opacity: 1; }
 }
