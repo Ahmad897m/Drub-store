@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>درب | الأقسام</title>
+<meta name="description" content="تصفحوا موديلات درب بالجملة والمفرق في حلب، مع الأسعار تحت كل صورة.">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#14120f">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header id="top">
+  <div class="nav">
+    <a href="index.html" class="logo">درب<i>.</i></a>
+    <nav class="nav-links">
+      <a href="index.html#wholesale">الجملة</a>
+      <a href="index.html#retail">المفرق</a>
+      <a href="index.html#shipping">الشحن</a>
+      <a href="index.html#contact" class="nav-cta">تواصل معنا</a>
+    </nav>
+  </div>
+</header>
+
+<section class="cat-hero">
+  <div class="wrap">
+    <span class="crumb" id="crumb"></span>
+    <h1 id="cat-title">تحميل...</h1>
+    <p id="cat-desc"></p>
+  </div>
+</section>
+
+<section style="padding-top:70px">
+  <div class="wrap">
+    <div class="products" id="products"></div>
+    <div class="cat-cta reveal">
+      <a class="btn btn-wa" id="cta-wa" href="https://wa.me/WHATSAPP_NUMBER" target="_blank" rel="noopener">التواصل عبر واتساب للتفاصيل</a>
+    </div>
+    <p style="text-align:center;margin-top:30px"><a href="index.html" style="color:var(--gold);font-weight:700">← العودة إلى الصفحة الرئيسية</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="logo">درب<span style="color:var(--gold-soft)">.</span></div>
+  <p>أحذية بالجملة والمفرق · حلب، سوريا</p>
+  <p style="margin-top:10px">© 2026 درب. جميع الحقوق محفوظة</p>
+</footer>
+
+<a class="float-wa" href="https://wa.me/WHATSAPP_NUMBER" target="_blank" rel="noopener" aria-label="واتساب">💬</a>
+
+<script src="catalog.js"></script>
+<script>
+  const params = new URLSearchParams(location.search);
+  const section = params.get('s') === 'retail' ? 'retail' : 'wholesale';
+  const index = parseInt(params.get('c'), 10) || 0;
+  const list = CATALOG[section] || [];
+  const cat = list[index];
+  const sectionLabel = section === 'retail' ? 'المفرق' : 'الجملة';
+
+  if (!cat) {
+    document.getElementById('cat-title').textContent = 'القسم غير موجود';
+    document.getElementById('cat-desc').textContent = 'يمكنكم العودة إلى الصفحة الرئيسية لاختيار قسم آخر.';
+  } else {
+    document.title = 'درب | ' + cat.name + ' ' + sectionLabel;
+    document.getElementById('crumb').textContent = sectionLabel + ' · ' + cat.name;
+    document.getElementById('cat-title').textContent = cat.name;
+    document.getElementById('cat-desc').textContent = cat.desc;
+
+    const wrap = document.getElementById('products');
+    cat.items.forEach((item, i) => {
+      const card = document.createElement('article');
+      card.className = 'product reveal' + (i % 3 === 1 ? ' d1' : i % 3 === 2 ? ' d2' : '');
+
+      const pimg = document.createElement('div');
+      pimg.className = 'pimg';
+      const img = document.createElement('img');
+      img.src = item.src;
+      img.alt = cat.name + ' - موديل ' + (i + 1);
+      img.loading = 'lazy';
+      img.onerror = () => {
+        const ph = document.createElement('span');
+        ph.className = 'ph';
+        ph.textContent = 'صورة قريباً';
+        img.replaceWith(ph);
+      };
+      pimg.appendChild(img);
+
+      const body = document.createElement('div');
+      body.className = 'pbody';
+      const price = document.createElement('div');
+      if (item.price) {
+        price.className = 'price';
+        price.textContent = item.price;
+      } else {
+        price.className = 'price ask';
+        price.textContent = 'السعر عند التواصل';
+      }
+      body.appendChild(price);
+
+      card.appendChild(pimg);
+      card.appendChild(body);
+      wrap.appendChild(card);
+    });
+
+    const msg = 'مرحباً، أريد التفاصيل عن قسم ' + cat.name + ' ضمن ' + sectionLabel;
+    document.getElementById('cta-wa').href =
+      'https://wa.me/WHATSAPP_NUMBER?text=' + encodeURIComponent(msg);
+  }
+
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(en => {
+      if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  const header = document.querySelector('header');
+  window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 40));
+</script>
+
+</body>
+</html>
