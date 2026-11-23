@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>درب | الموديل</title>
+<title>درب | الصنف</title>
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#14120f">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,16 +30,13 @@
   <div class="wrap">
     <span class="crumb" id="crumb"></span>
     <h1 id="m-title">تحميل...</h1>
-    <p id="m-sub"></p>
+    <p id="m-sub">اضغطوا على السعر لطلب الصنف عبر واتساب</p>
   </div>
 </section>
 
 <section style="padding-top:70px">
   <div class="wrap">
-    <div class="products" id="colors"></div>
-    <div class="cat-cta reveal">
-      <a class="btn btn-wa" id="cta-wa" href="#" target="_blank" rel="noopener">استفسر عن هذا الموديل عبر واتساب</a>
-    </div>
+    <div class="products" id="photos"></div>
     <p style="text-align:center;margin-top:30px"><a id="back" href="index.html" style="color:var(--gold);font-weight:700">← العودة إلى القسم</a></p>
   </div>
 </section>
@@ -60,47 +57,38 @@
   const mi = parseInt(params.get('m'), 10) || 0;
   const label = section === 'retail' ? 'المفرق' : 'الجملة';
   const cat = (CATALOG[section] || [])[index];
-  const model = cat ? cat.models[mi] : null;
+  const item = cat ? cat.items[mi] : null;
 
   document.getElementById('float-wa').href = waLink();
 
-  if (!model) {
-    document.getElementById('m-title').textContent = 'الموديل غير موجود';
-    document.getElementById('m-sub').textContent = 'يمكنكم العودة إلى الصفحة الرئيسية لاختيار موديل آخر.';
-    document.getElementById('cta-wa').href = waLink();
+  if (!item) {
+    document.getElementById('m-title').textContent = 'الصنف غير موجود';
+    document.getElementById('m-sub').textContent = 'يمكنكم العودة إلى الصفحة الرئيسية.';
   } else {
-    document.title = 'درب | ' + model.name + ' · ' + cat.name;
+    document.title = 'درب | ' + cat.name + ' ' + label;
     document.getElementById('crumb').textContent = label + ' · ' + cat.name;
-    document.getElementById('m-title').textContent = model.name;
-    document.getElementById('m-sub').textContent =
-      'اختاروا اللون الذي يناسبكم، والسعر يظهر تحت كل صورة';
+    document.getElementById('m-title').textContent = cat.name;
     document.getElementById('back').href = 'category.html?s=' + section + '&c=' + index;
-    document.getElementById('cta-wa').href = waLink(
-      'مرحباً، أريد الاستفسار عن ' + label + ' - ' + cat.name + ' - ' + model.name
-    );
 
-    const wrap = document.getElementById('colors');
-    model.colors.forEach((c, i) => {
+    const wrap = document.getElementById('photos');
+    item.photos.forEach((src, p) => {
       const card = document.createElement('div');
-      card.className = 'product reveal' + (i % 3 === 1 ? ' d1' : i % 3 === 2 ? ' d2' : '');
+      card.className = 'product reveal' + (p % 3 === 1 ? ' d1' : p % 3 === 2 ? ' d2' : '');
 
       const pimg = document.createElement('div');
       pimg.className = 'pimg';
-      pimg.appendChild(makeImg(c.src, model.name + ' ' + c.name, c.name));
+      pimg.appendChild(makeImg(src, cat.name, 'صورة قريباً'));
       card.appendChild(pimg);
 
       const body = document.createElement('div');
       body.className = 'pbody';
-      body.innerHTML =
-        '<h4>' + c.name + '</h4>' +
-        '<div class="price' + (model.price ? '' : ' ask') + '">' + (model.price || 'السعر عند التواصل') + '</div>';
-      const btn = document.createElement('a');
-      btn.className = 'ask-btn';
-      btn.href = waLink('مرحباً، أريد الاستفسار عن ' + cat.name + ' - ' + model.name + ' - اللون ' + c.name);
-      btn.target = '_blank';
-      btn.rel = 'noopener';
-      btn.textContent = 'استفسر عن هذا اللون';
-      body.appendChild(btn);
+      const price = document.createElement('a');
+      price.className = 'ask-btn';
+      price.href = waLink('مرحباً، أريد السعر: ' + label + ' - ' + cat.name + ' - صنف ' + (mi + 1) + ' - صورة ' + (p + 1));
+      price.target = '_blank';
+      price.rel = 'noopener';
+      price.textContent = item.price || 'السعر عند التواصل';
+      body.appendChild(price);
       card.appendChild(body);
       wrap.appendChild(card);
     });

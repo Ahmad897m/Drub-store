@@ -37,10 +37,7 @@
 
 <section style="padding-top:70px">
   <div class="wrap">
-    <div class="products" id="models"></div>
-    <div class="cat-cta reveal">
-      <a class="btn btn-wa" id="cta-wa" href="#" target="_blank" rel="noopener">التواصل عبر واتساب للتفاصيل</a>
-    </div>
+    <div class="products" id="items"></div>
     <p style="text-align:center;margin-top:30px"><a href="index.html" style="color:var(--gold);font-weight:700">← العودة إلى الصفحة الرئيسية</a></p>
   </div>
 </section>
@@ -62,9 +59,6 @@
   const cat = (CATALOG[section] || [])[index];
 
   document.getElementById('float-wa').href = waLink();
-  document.getElementById('cta-wa').href = waLink(
-    'مرحباً، أريد التفاصيل عن قسم ' + (cat ? cat.name : '') + ' ضمن ' + label
-  );
 
   if (!cat) {
     document.getElementById('cat-title').textContent = 'القسم غير موجود';
@@ -75,25 +69,27 @@
     document.getElementById('cat-title').textContent = cat.name;
     document.getElementById('cat-desc').textContent = cat.desc;
 
-    const wrap = document.getElementById('models');
-    cat.models.forEach((m, i) => {
-      const first = m.colors[0];
-      const card = document.createElement('a');
+    const wrap = document.getElementById('items');
+    cat.items.forEach((item, i) => {
+      const card = document.createElement('div');
       card.className = 'product reveal' + (i % 3 === 1 ? ' d1' : i % 3 === 2 ? ' d2' : '');
-      card.href = 'model.html?s=' + section + '&c=' + index + '&m=' + i;
 
-      const pimg = document.createElement('div');
-      pimg.className = 'pimg';
-      pimg.appendChild(makeImg(first.src, m.name, m.name));
-      card.appendChild(pimg);
+      const link = document.createElement('a');
+      link.className = 'pimg';
+      link.href = 'model.html?s=' + section + '&c=' + index + '&m=' + i;
+      link.appendChild(makeImg(item.photos[0], cat.name, 'صورة قريباً'));
+      card.appendChild(link);
 
       const body = document.createElement('div');
       body.className = 'pbody';
-      body.innerHTML =
-        '<h4>' + m.name + '</h4>' +
-        '<div class="sub">' + m.colors.length + ' ألوان</div>' +
-        '<div class="price' + (m.price ? '' : ' ask') + '">' + (m.price || 'السعر عند التواصل') + '</div>' +
-        '<span class="ask-btn">عرض الألوان ←</span>';
+      const price = document.createElement('a');
+      const hasPrice = !!item.price;
+      price.className = 'ask-btn';
+      price.href = waLink('مرحباً، أريد السعر: ' + label + ' - ' + cat.name + ' - صنف ' + (i + 1));
+      price.target = '_blank';
+      price.rel = 'noopener';
+      price.textContent = hasPrice ? item.price : 'السعر عند التواصل';
+      body.appendChild(price);
       card.appendChild(body);
       wrap.appendChild(card);
     });

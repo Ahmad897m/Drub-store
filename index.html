@@ -259,7 +259,7 @@
       a.className = 'cat reveal' + (i % 3 === 1 ? ' d1' : i % 3 === 2 ? ' d2' : '');
       a.href = 'category.html?s=' + section + '&c=' + i;
       a.style.setProperty('--c', cat.color);
-      const first = cat.models && cat.models[0] ? cat.models[0].colors[0].src : '';
+      const first = cat.items && cat.items[0] ? cat.items[0].photos[0] : '';
       if (first) a.appendChild(makeImg(first, cat.name, cat.name));
       const ph = document.createElement('span');
       ph.className = 'ph';
