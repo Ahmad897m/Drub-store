@@ -31,7 +31,7 @@ header.scrolled { background: rgba(20,18,15,.92); backdrop-filter: blur(10px); b
 .nav { max-width: 1200px; margin: auto; padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; color: #fff; }
 .logo { font-size: 30px; font-weight: 900; letter-spacing: 2px; }
 .logo i { font-style: normal; color: var(--gold-soft); }
-.nav-links { display: flex; gap: 28px; font-size: 15px; font-weight: 600; }
+.nav-links { display: flex; align-items: center; gap: 28px; font-size: 15px; font-weight: 600; }
 .nav-links a { opacity: .85; transition: opacity .2s, color .2s; }
 .nav-links a:hover { opacity: 1; color: var(--gold-soft); }
 .nav-cta { background: var(--gold); color: var(--ink) !important; padding: 9px 20px; border-radius: 40px; opacity: 1 !important; }
@@ -338,3 +338,20 @@ footer .logo-img { width: 72px; height: 72px; margin: 0 auto 10px; }
 .emblem .core { inset: 56px; }
 @media (max-width: 960px) { .emblem .core { inset: 60px; } }
 @media (max-width: 560px) { .emblem .core { inset: 56px; } .logo-img { width: 48px; height: 48px; } }
+
+/* ---------- Models & colors ---------- */
+a.product { display: block; color: inherit; }
+.product .pimg .ph { font-size: 18px; color: var(--muted); font-weight: 700; }
+.product .pbody { padding: 18px 18px 22px; }
+.product .pbody h4 { font-size: 20px; font-weight: 900; color: var(--ink); margin-bottom: 2px; }
+.product .pbody .sub { font-size: 14px; color: var(--muted); margin-bottom: 6px; }
+.product .pbody .price { font-size: 18px; font-weight: 900; color: var(--ink); }
+.product .pbody .price.ask { font-size: 15px; font-weight: 600; color: var(--muted); }
+.ask-btn {
+  display: inline-block; margin-top: 12px; border: 2px solid var(--wa); color: var(--wa);
+  padding: 7px 18px; border-radius: 24px; font-weight: 700; font-size: 14px; transition: background .2s, color .2s;
+}
+.product:hover .ask-btn, .ask-btn:hover { background: var(--wa); color: #fff; }
+.products { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 960px) { .products { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .products { grid-template-columns: repeat(2, 1fr); gap: 14px; } .product .pbody h4 { font-size: 17px; } }

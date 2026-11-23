@@ -25,11 +25,11 @@
   "description": "أحذية بالجملة والمفرق لكل العائلة",
   "url": "https://YOUR-DOMAIN.example/",
   "image": "https://YOUR-DOMAIN.example/images/hero.jpg",
-  "telephone": "+WHATSAPP_NUMBER",
+  "telephone": "+963957449482",
   "address": { "@type": "PostalAddress", "addressLocality": "حلب", "addressCountry": "SY" },
   "areaServed": { "@type": "Country", "name": "Syria" },
   "priceRange": "$$",
-  "sameAs": ["https://www.instagram.com/INSTAGRAM_USERNAME"]
+  "sameAs": ["https://www.instagram.com/darbshoes.sy"]
 }
 </script>
 
@@ -43,8 +43,8 @@
 
 <!--
   ======================= إعدادات قبل النشر =======================
-  1) WHATSAPP_NUMBER : رقم واتساب بصيغة دولية بدون + أو مسافات، مثال 963912345678 (يتكرر في الملف، استبدلوه كله)
-  2) INSTAGRAM_USERNAME : اسم حساب إنستغرام بدون @
+  1) رقم الواتساب مضبوط على 963957449482 في كل الصفحات
+  2) حساب إنستغرام: darbshoes.sy
   3) YOUR-DOMAIN.example : الرابط الحقيقي للموقع بعد النشر
   4) الصور والأسعار والأقسام: من ملف catalog.js فقط
   ================================================================
@@ -57,7 +57,6 @@
       <a href="#choose">الجملة والمفرق</a>
       <a href="#how">كيف تطلبون</a>
       <a href="#shipping">الشحن</a>
-      <a href="#map-section">الخريطة</a>
       <a href="#contact" class="nav-cta">تواصل معنا</a>
     </nav>
   </div>
@@ -70,7 +69,7 @@
       <h1>أحذية تليق بكل خطوة، <em>لكل العائلة</em></h1>
       <p>أحذية بالجملة والمفرق بتشكيلة متنوعة وجودة مختارة بعناية. الأسعار تُتفق عند التواصل، ونشحن داخل سوريا مع الدفع عند الاستلام.</p>
       <div class="btns">
-        <a class="btn btn-gold" href="https://wa.me/WHATSAPP_NUMBER" target="_blank" rel="noopener">اطلب عبر واتساب</a>
+        <a class="btn btn-gold" href="https://wa.me/963957449482" target="_blank" rel="noopener">اطلب عبر واتساب</a>
       </div>
     </div>
     <div class="emblem" aria-hidden="true">
@@ -224,8 +223,8 @@
     <h2>جاهزون لخدمتكم</h2>
     <p>راسلونا لأي استفسار عن الجملة أو المفرق</p>
     <div class="btns">
-      <a class="btn btn-wa" href="https://wa.me/WHATSAPP_NUMBER" target="_blank" rel="noopener">واتساب</a>
-      <a class="btn btn-ghost" href="https://www.instagram.com/INSTAGRAM_USERNAME" target="_blank" rel="noopener">إنستغرام</a>
+      <a class="btn btn-wa" href="https://wa.me/963957449482" target="_blank" rel="noopener">واتساب</a>
+      <a class="btn btn-ghost" href="https://www.instagram.com/darbshoes.sy" target="_blank" rel="noopener">إنستغرام</a>
     </div>
   </div>
 </section>
@@ -236,7 +235,7 @@
   <p style="margin-top:10px">© 2026 درب. جميع الحقوق محفوظة</p>
 </footer>
 
-<a class="float-wa" href="https://wa.me/WHATSAPP_NUMBER" target="_blank" rel="noopener" aria-label="واتساب">💬</a>
+<a class="float-wa" href="https://wa.me/963957449482" target="_blank" rel="noopener" aria-label="واتساب">💬</a>
 
 <script src="catalog.js"></script>
 <script>
@@ -260,7 +259,7 @@
       a.className = 'cat reveal' + (i % 3 === 1 ? ' d1' : i % 3 === 2 ? ' d2' : '');
       a.href = 'category.html?s=' + section + '&c=' + i;
       a.style.setProperty('--c', cat.color);
-      const first = cat.items[0] ? cat.items[0].src : '';
+      const first = cat.models && cat.models[0] ? cat.models[0].colors[0].src : '';
       if (first) a.appendChild(makeImg(first, cat.name, cat.name));
       const ph = document.createElement('span');
       ph.className = 'ph';
