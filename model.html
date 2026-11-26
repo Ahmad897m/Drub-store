@@ -84,7 +84,7 @@
       body.className = 'pbody';
       const price = document.createElement('a');
       price.className = 'ask-btn';
-      price.href = waLink('مرحباً، أريد السعر: ' + label + ' - ' + cat.name + ' - صنف ' + (mi + 1) + ' - صورة ' + (p + 1));
+      price.href = waLink(priceMsg(src));
       price.target = '_blank';
       price.rel = 'noopener';
       price.textContent = item.price || 'السعر عند التواصل';

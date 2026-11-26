@@ -8,6 +8,7 @@
 
 window.WA_PHONE = '963957449482';
 window.IG_URL = 'https://www.instagram.com/darbshoes.sy';
+window.SITE_BASE = 'https://ahmad897m.github.io/Drub-store/';
 
 function makeItem(base, count, price) {
   const photos = [];
@@ -68,6 +69,10 @@ window.makeImg = function (src, alt, text) {
     img.replaceWith(ph);
   };
   return img;
+};
+
+window.priceMsg = function (photoPath) {
+  return 'ما هو سعر هذا الموديل:\n' + window.SITE_BASE + photoPath;
 };
 
 window.waLink = function (msg) {
